@@ -15,43 +15,49 @@ const fetch = (options) => {
     url,
   } = options
 
+
+
   const cloneData = lodash.cloneDeep(data)
 
-  try {
-    let domin = ''
-    if (url.match(/[a-zA-z]+:\/\/[^/]*/)) {
-      domin = url.match(/[a-zA-z]+:\/\/[^/]*/)[0]
-      url = url.slice(domin.length)
-    }
-    const match = pathToRegexp.parse(url)
-    url = pathToRegexp.compile(url)(data)
-    for (let item of match) {
-      if (item instanceof Object && item.name in cloneData) {
-        delete cloneData[item.name]
-      }
-    }
-    url = domin + url
-  } catch (e) {
-    message.error(e.message)
-  }
+  // try {
+  //   let domin = ''
+  //   if (url.match(/[a-zA-z]+:\/\/[^/]*/)) {
+  //     domin = url.match(/[a-zA-z]+:\/\/[^/]*/)[0]
+  //     url = url.slice(domin.length)
+  //   }
+  //   const match = pathToRegexp.parse(url)
+  //   url = pathToRegexp.compile(url)(data)
+  //   for (let item of match) {
+  //     if (item instanceof Object && item.name in cloneData) {
+  //       delete cloneData[item.name]
+  //     }
+  //   }
+  //   url = domin + url
+  // } catch (e) {
+  //   console.log("123213",e);
+  //   message.error(e.message)
+  // }
 
-  if (fetchType === 'JSONP') {
-    return new Promise((resolve, reject) => {
-      jsonp(url, {
-        param: `${qs.stringify(data)}&callback`,
-        name: `jsonp_${new Date().getTime()}`,
-        timeout: 4000,
-      }, (error, result) => {
-        if (error) {
-          reject(error)
-        }
-        resolve({ statusText: 'OK', status: 200, data: result })
-      })
-    })
-  } else if (fetchType === 'YQL') {
-    url = `http://query.yahooapis.com/v1/public/yql?q=select * from json where url='${options.url}?${encodeURIComponent(qs.stringify(options.data))}'&format=json`
-    data = null
-  }
+  console.log('fetchType',options)
+  // if (fetchType === 'JSONP') {
+  //   return new Promise((resolve, reject) => {
+  //     jsonp(url, {
+  //       param: `${qs.stringify(data)}&callback`,
+  //       name: `jsonp_${new Date().getTime()}`,
+  //       timeout: 4000,
+  //     }, (error, result) => {
+  //       if (error) {
+  //         reject(error)
+  //       }
+  //       resolve({ statusText: 'OK', status: 200, data: result })
+  //     })
+  //   })
+  // } else if (fetchType === 'YQL') {
+  //   url = `http://query.yahooapis.com/v1/public/yql?q=select * from json where url='${options.url}?${encodeURIComponent(qs.stringify(options.data))}'&format=json`
+  //   data = null
+  // }
+
+  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
   switch (method.toLowerCase()) {
     case 'get':

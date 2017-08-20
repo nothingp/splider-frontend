@@ -123,6 +123,13 @@ const Routers = function ({ history, app }) {
               cb(null, require('routes/chart/areaChart/'))
             }, 'chart-areaChart')
           },
+        },{
+          path: 'chart/reportChart',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              cb(null, require('routes/chart/reportChart/'))
+            }, 'chart-reportChart')
+          },
         }, {
           path: 'post',
           getComponent (nextState, cb) {

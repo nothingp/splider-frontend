@@ -30,11 +30,12 @@ const EnumRoleType = {
   ADMIN: 'admin',
   DEFAULT: 'guest',
   DEVELOPER: 'developer',
+  TEST: 'test',
 }
 
 const userPermission = {
   DEFAULT: {
-    visit: ['1', '2', '21', '7', '5', '51', '52', '53'],
+    visit: ['1', '2', '21', '7', '5', '51', '52', '53','54'],
     role: EnumRoleType.DEFAULT,
   },
   ADMIN: {
@@ -42,6 +43,10 @@ const userPermission = {
   },
   DEVELOPER: {
     role: EnumRoleType.DEVELOPER,
+  },
+  TEST: {
+    visit: ['1', '5','54'],
+    role: EnumRoleType.TEST,
   },
 }
 
@@ -61,6 +66,11 @@ const adminUsers = [
     username: '吴彦祖',
     password: '123456',
     permissions: userPermission.DEVELOPER,
+  },{
+    id: 3,
+    username: 'test',
+    password: 'test',
+    permissions: userPermission.TEST,
   },
 ]
 

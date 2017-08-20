@@ -121,6 +121,14 @@ let database = [
     route: '/chart/areaChart',
   },
   {
+    id: '54',
+    bpid: '5',
+    mpid: '5',
+    name: 'ReportChart',
+    icon: 'area-chart',
+    route: '/chart/reportChart',
+  },
+  {
     id: '6',
     bpid: '1',
     name: 'Test Navigation',

@@ -1,5 +1,6 @@
 const APIV1 = '/api/v1'
 const APIV2 = '/api/v2'
+const APIREPORT="//119.23.135.26:8999"
 
 module.exports = {
   name: 'AntD Admin',
@@ -23,5 +24,7 @@ module.exports = {
     menus: `${APIV1}/menus`,
     v1test: `${APIV1}/test`,
     v2test: `${APIV2}/test`,
+    reportApi: `${APIREPORT}/api/gupiao/report`,
+    propApi: `${APIREPORT}/api/gupiao/tree`,
   },
 }
