@@ -1,6 +1,6 @@
 const APIV1 = '/api/v1'
 const APIV2 = '/api/v2'
-const APIREPORT="//119.23.135.26:8999"
+const APIREPORT="//120.76.160.175:8999"
 
 module.exports = {
   name: 'AntD Admin',
