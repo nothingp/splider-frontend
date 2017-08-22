@@ -8,4 +8,5 @@ ADD / /app
 EXPOSE 8000
 RUN npm config set registry https://registry.npm.taobao.org
 RUN npm install
-CMD npm run dev
+ENTRYPOINT ["bash", "npm run dev"]
+CMD []
