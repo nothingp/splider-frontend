@@ -5,6 +5,6 @@ WORKDIR /app
 VOLUME /app
 ADD * /app
 
-EXPOSE 80
+EXPOSE 8000
 ENTRYPOINT ["bash", "npm run dev"]
 CMD []
