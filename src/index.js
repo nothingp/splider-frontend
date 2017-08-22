@@ -15,6 +15,13 @@ const app = dva({
   },
 })
 
+require('./mock/common');
+require('./mock/dashboard');
+require('./mock/menu');
+require('./mock/post');
+require('./mock/user');
+
+
 // 2. Model
 app.model(require('./models/app'))
 app.model(require('./models/report'))
@@ -24,3 +31,4 @@ app.router(require('./router'))
 
 // 4. Start
 app.start('#root')
+
