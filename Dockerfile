@@ -6,5 +6,6 @@ VOLUME /app
 ADD / /app
 
 EXPOSE 8000
-ENTRYPOINT ["bash", "npm run dev"]
-CMD []
+RUN npm config set registry https://registry.npm.taobao.org
+RUN npm install
+CMD ["npm run dev"]
